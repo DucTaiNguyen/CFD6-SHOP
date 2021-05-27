@@ -1,6 +1,7 @@
 import { LOGIN, LOGOUT, ERROR, UPDATE } from './../type'
 let initState = {
     login: JSON.parse(localStorage.getItem('login'))
+
 }
 
 export default function authReducer(state = initState, action) {

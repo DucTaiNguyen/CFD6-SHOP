@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-
+// import counterReducer from './reducer/counterReducer'
 import authReducer from './reducer/authReducer'
 
 let reducer = combineReducers({
-
+    // counterReducer: counterReducer,
     auth: authReducer
 })
 
