@@ -1,6 +1,27 @@
+import { useEffect, useState } from "react"
+import ProductApi from "../../service/product"
+import React from "react";
+
+
 export default function Product() {
+    let [list, setList] = useState({
+        data: [],
+        paginate: []
+    })
+    useEffect(async () => {
+        let res = await ProductApi.list()
+        if (res) {
+
+            setList({
+                ...list,
+                data: res.data,
+                paginate: res.paginate
+            })
+        }
+    }, [])
+    console.log("nguyenan", list)
     return (
-        <>
+        <React.Fragment>
             <nav className="py-5">
                 <div className="container">
                     <div className="row">
@@ -101,7 +122,7 @@ export default function Product() {
                                         </div>
                                     </div>
                                     {/* Heading */}
-                                    <h3 className="mb-2">Leather Sneakers</h3>
+                                    <h3 className="mb-2">{list.paginate.count} Leather Sneakers</h3>
                                     {/* Price */}
                                     <div className="mb-7">
                                         <span className="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through">$115.00</span>
@@ -1114,6 +1135,6 @@ export default function Product() {
                     </div>
                 </div>
             </section>
-        </>
+        </React.Fragment>
     )
 }

@@ -21,18 +21,7 @@ export default function Register() {
                 required: true,
                 pattern: 'email'
             },
-            fb: {
 
-                pattern: /^https?:\/\/www\.facebook\.com.*\/(video(s)?|watch|story)(\.php?|\/).+$/i
-            },
-            title: {
-                required: true,
-
-            },
-            content: {
-                required: true,
-                // pattern: 'content'
-            }
 
         },
         message: {
@@ -44,9 +33,7 @@ export default function Register() {
                 // pattern: 'Phải là số điện thoại Việt Nam'
 
             },
-            fb: {
-                pattern: "Phải là link facebook"
-            }
+
         }
     })
 

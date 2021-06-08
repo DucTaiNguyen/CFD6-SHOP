@@ -25,21 +25,15 @@ export default function SignIn() {
 
     let dispatch = useDispatch()
     // let { handleLogin } = useAuth()
-    function close() {
-        document.querySelector('.popup-login').style.display = 'none'
-    }
+
 
 
     let { loginError } = useSelector(store => store.auth)
 
-    async function loginHandle() {
+    async function loginHandle(e) {
+        e.preventDefault()
         let error = check()
         if (Object.keys(error).length === 0) {
-            // let res = await Auth.login({
-            //     username: form.username,
-            //     password: form.password
-
-            // })
 
 
 
@@ -47,24 +41,8 @@ export default function SignIn() {
             dispatch(loginAction({
                 username: form.username,
                 password: form.password
-            }, close))
+            }))
 
-            // if (res.data) {
-
-            // dispatch({
-            //     type: "LOGIN",
-            //     payload: res.data
-            // })
-            //     dispatch(loginAction(res.data))
-            //     close()
-            // } else if (res.error) {
-            //     setLoginError(res.error)
-            // }
-            // if (res.success) {
-            //     close()
-            // } else if (res.error) {
-            //     setLoginError(res.error)
-            // }
 
         }
     }
@@ -130,7 +108,7 @@ export default function SignIn() {
                                 {/* Button */}
                                 <button className="btn btn-sm btn-dark" onClick={loginHandle} type="submit">
                                     Sign In
-        </button>
+                                 </button>
                             </div>
                         </div>
                     </form>

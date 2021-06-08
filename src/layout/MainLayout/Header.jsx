@@ -1,8 +1,12 @@
-import useTranslate from '../../core/useTranslate'
+import { useTranslate } from '../../core/Translate'
 
 
 export const Header = () => {
-    let { t } = useTranslate()
+    let { t, selectLang, lang } = useTranslate()
+
+    function changeLang(lan) {
+        selectLang(lan)
+    }
     return (
         <>
             {/* NAVBAR */}
@@ -49,12 +53,17 @@ export const Header = () => {
                             </li>
                             <li className="nav-item dropdown">
                                 {/* Toggle */}
-                                <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#">English</a>
+                                <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                                    {
+                                        lang === 'en' ? "English" :
+                                            lang === 'china' ? "China" : "Tiếng Việt"
+                                    }
+                                </a>
                                 {/* Menu */}
                                 <div className="dropdown-menu minw-0">
-                                    <a className="dropdown-item" href="#">English</a>
-                                    <a className="dropdown-item" href="#">French</a>
-                                    <a className="dropdown-item" href="#">German</a>
+                                    <a className="dropdown-item" href="#" onClick={e => changeLang('en')}>English</a>
+                                    <a className="dropdown-item" href="#" onClick={e => changeLang('vi')}>Tiếng Việt</a>
+                                    <a className="dropdown-item" href="#" onClick={e => changeLang('china')}>China</a>
                                 </div>
                             </li>
                         </ul>

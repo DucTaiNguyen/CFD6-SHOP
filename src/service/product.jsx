@@ -1,12 +1,12 @@
 import { endpoint } from './config'
 
-const HomeApi = {
+const ProductApi = {
     list() {
-        return fetch(`${endpoint}/elearning/v4/home`, {
+        return fetch(`${endpoint}/product`, {
             method: 'GET',
 
         }).then(res => res.json())
     }
 }
 
-export default HomeApi
+export default ProductApi
